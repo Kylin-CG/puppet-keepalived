@@ -1,8 +1,9 @@
 # Keepalived puppet module
 
-Module to manage keepalived on Debian/Ubuntu.
+Module to manage keepalived on Debian/Ubuntu/Ukylin.
 
 ## Example
+
 
 ### Loadbalancer
     class {
@@ -31,7 +32,7 @@ Module to manage keepalived on Debian/Ubuntu.
     keepalived::virtual_server {
       'mx1 smtp':
         ip       => '10.10.10.1',
-        port     => 25,
+        ports    => 25,
         lb_kind  => 'DR',
         protocol => 'TCP';
     }
@@ -40,7 +41,7 @@ Module to manage keepalived on Debian/Ubuntu.
     @@keepalived::real_server {
       "${hostname} smtp":
         ip                  => '10.10.10.2',
-        port                => 25,
+        ports               => 25,
         check_type          => 'SMTP',
         virtual_server_name => 'mx1 smtp',
         virtual_server_ip   => '10.10.10.1',
