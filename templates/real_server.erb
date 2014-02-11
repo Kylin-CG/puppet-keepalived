@@ -1,4 +1,4 @@
-  real_server <%= ip %> <%= port %> {
+  real_server <%= ip %> <% ports.each do |port| -%> <%= port %> <% end -%> {
     weight <%= weight %>
 <% if inhibit_on_failure -%>
     inhibit_on_failure
@@ -52,6 +52,7 @@
 <% end -%>
     }
 <% when 'TCP' -%>
+<% ports.each do |port| -%>
     TCP_CHECK {
       connect_port <%= connect_port || port %>
 <% if bindto -%>
@@ -61,6 +62,7 @@
       connect_timeout <%= connect_timeout %>
 <% end -%>
     }
+<% end -%>
 <% else -%>
 <% raise "unknown check #{check_type}" %>
 <% end -%>

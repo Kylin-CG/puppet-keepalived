@@ -8,9 +8,7 @@ global_defs {
     <%= email %>
 <% end -%>
   }
-  notification_email_from root@<%= fqdn %>
   smtp_server <%= smtp_server %>
   smtp_connect_timeout 30
   router_id <%= hostname %>
 }
-

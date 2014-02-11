@@ -3,7 +3,7 @@ define keepalived::real_server(
   $virtual_server_ip,
   $virtual_server_port,
   $ip,
-  $port,
+  $ports,
   $weight = 10,
   $check_type,
   $inhibit_on_failure = false,
