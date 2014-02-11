@@ -10,7 +10,7 @@ node mx {
 
   @@keepalived::real_server {
     '10.10.10.20':
-      port                => 25,
+      ports               => 25,
       check_type          => 'SMTP',
       virtual_server_name => '10.10.10.10',
       virtual_server_port => 25;

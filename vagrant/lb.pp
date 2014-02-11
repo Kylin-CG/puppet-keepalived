@@ -20,7 +20,7 @@ node lb {
 
   keepalived::virtual_server {
     '10.10.10.10':
-      port     => 25,
+      ports    => 25,
       lb_kind  => 'DR',
       protocol => 'TCP';
   }
